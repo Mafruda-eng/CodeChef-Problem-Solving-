@@ -1,0 +1,17 @@
+#(A)Maximum Slams
+X = int(input())
+required = max(25 - X, 0)
+if required == 0:
+    print(0)
+else:
+    years = (required + 3) // 4  
+    print(years)
+
+#(B) Number Reduction
+
+T = int(input())
+for i in range(T):
+    X = int(input())
+    while X not in {1, 2, 3}:
+        X = X // 2 if X % 2 == 0 else X - 3
+    print(1 if X != 3 else 3)

@@ -1,0 +1,75 @@
+#1. Chef Bakes Cake 1
+
+n, m = map(int, input().split())
+made = n * 30
+sell = m * 50
+print(sell - made)
+
+#2. Chef Bakes Cake 2
+
+t = int(input())
+for i in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    cost = 0
+    for j in range(n):
+        need = a[j] - b[j]
+        if need > 0:
+            cost = cost + need
+    print(cost) 
+
+#3. Chef Bakes Cake 3
+
+t = int(input())
+for i in range(t):
+    N = int(input())
+    A = list(map(int, input().split()))
+    max_A = max(A)
+    max_profit = 0
+    for X in range(0, max_A + 1):
+        sold = 0
+        for a in A:
+            sold += min(X, a)
+        cost = 30 * X * N
+        income = 50 * sold
+        profit = income - cost
+        if profit > max_profit:
+            max_profit = profit
+    print(max_profit)
+
+#4. Mark all
+
+import sys
+
+def mj():
+    input = sys.stdin.read().split()
+    khuku = 0
+    T = int(input[khuku])
+    khuku += 1
+    for e in range(T):
+        N = int(input[khuku])
+        khuku += 1
+        A = list(map(int, input[khuku:khuku+N]))
+        khuku += N
+        
+        min_prefix = [float('inf')] * (N + 2)
+        min_suffix = [float('inf')] * (N + 2)
+        min_prefix[0] = float('inf')
+        for i in range(1, N + 1):
+            min_prefix[i] = min(min_prefix[i - 1], A[i - 1])
+        
+        min_suffix[N + 1] = float('inf')
+        for i in range(N, 0, -1):
+            min_suffix[i] = min(min_suffix[i + 1], A[i - 1])
+        
+        res = min(A[-1], A[0])
+        
+        for i in range(1, N):
+            current_sum = min_prefix[i] + min_suffix[i + 1]
+            if current_sum < res:
+                res = current_sum
+        
+        print(res)
+
+mj()    

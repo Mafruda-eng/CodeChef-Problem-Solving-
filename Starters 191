@@ -1,0 +1,32 @@
+#1. Divide into 3
+N = int(input())
+if N % 3 == 0:
+    print(0)
+else:
+    print(1)
+#2. Nearest Square
+import math
+
+T = int(input())
+for i in range(T):
+    N = int(input())
+    B = int(math.isqrt(N))
+    A = B * B
+    print(A)
+
+#3. Add to get GCD
+import math
+
+def solve():
+    T = int(input())
+    for i in range(T):
+        X, Y = map(int, input().split())
+        if math.gcd(X, Y) > 1:
+            print(0)
+            continue
+        if math.gcd(X + 1, Y) > 1 or math.gcd(X, Y + 1) > 1:
+            print(1)
+            continue
+        print(2)
+
+solve()

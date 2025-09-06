@@ -1,0 +1,38 @@
+#1. Cloud Watching
+
+a, b = map(int,input().split())
+if b >= a * 3:
+    print('rain')
+else:
+    print('dry')
+
+#2. More Cookies
+
+t = int(input())
+for i in range(t):
+    n, c = map(int, input().split())
+    a = list(map(int, input().split()))
+    over = 0
+    while True:
+        alc = c + over
+        if any(x < alc for x in a) and all(x != alc for x in a):
+            print(over)
+            break
+        over += 1
+
+ #3. Sugar Limit
+
+ T = int(input())
+for k in range(T):
+    N = int(input())
+    A = list(map(int, input().split()))
+    B = list(map(int, input().split()))
+    
+    maxs = float('-inf')
+    
+    for L in range(0, 101):  
+        total = sum(A[i] for i in range(N) if B[i] <= L and A[i] > 0)
+        satisfaction = total - L
+        maxs = max(maxs, satisfaction)
+    
+    print(maxs)

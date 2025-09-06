@@ -1,0 +1,33 @@
+#1. Selling Sandwiches
+
+a, b, c = map(int, input().split())
+profit = a - (b + c)
+print(profit)
+
+#2. Failing Grades
+
+t = int(input())
+for i in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+    total = 0
+    result = 'yes'
+    for j in range(n):
+        total += a[j]
+        average = total / (j + 1)
+        if average < 40:
+            result = 'no'
+            break
+    print(result)    
+    
+#3. Marble Collector
+
+t = int(input())
+for i in range(t):
+    n, m = map(int, input().split())
+    a = list(map(int, input().split()))
+    have = set(a)
+    not_have = m - len(have)
+    print(not_have)
+    
+
